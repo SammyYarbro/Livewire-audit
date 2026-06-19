@@ -13,7 +13,98 @@
     --red:#c8102e; --ink:#15171a; --muted:#5b616b; --line:#e6e7ea;
     --bg:#ffffff; --soft:#f6f7f9; --ok:#1d7a4d; --warn:#b8860b; --bad:#c0392b;
   }
-  <script type="application/ld+json">
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+  header{border-bottom:1px solid var(--line);padding:18px 0}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
+  .dot{width:12px;height:12px;background:var(--red);border-radius:50%;box-shadow:0 0 0 4px rgba(200,16,46,.15)}
+  .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  nav{display:flex;gap:20px}
+  nav a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500}
+  nav a:hover{color:var(--red)}
+  @media(max-width:560px){nav{gap:14px}nav a{font-size:13px}}
+  .hero{padding:54px 0 30px;text-align:center}
+  .hero h1{font-size:38px;line-height:1.15;letter-spacing:-.02em;max-width:720px;margin:0 auto 16px}
+  .hero h1 span{color:var(--red)}
+  .hero p{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto}
+  .tool{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:28px;margin:32px 0}
+  .audit-row{display:flex;gap:10px;flex-wrap:wrap}
+  .audit-row input{flex:1;min-width:220px;padding:15px 16px;font-size:16px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  .audit-row input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.12)}
+  .btn{background:var(--red);color:#fff;border:none;padding:15px 26px;font-size:16px;font-weight:600;border-radius:10px;cursor:pointer;white-space:nowrap}
+  .btn:hover{background:#a60d26}
+  .btn:disabled{opacity:.6;cursor:not-allowed}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{background:var(--soft)}
+  .hint{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
+  .hidden{display:none}
+  .score-head{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}
+  .gauge{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;flex-shrink:0}
+  .gauge b{font-size:34px;line-height:1}
+  .gauge small{font-size:11px;text-transform:uppercase;letter-spacing:.05em;opacity:.8}
+  .score-summary h2{font-size:22px;margin-bottom:6px}
+  .score-summary p{color:var(--muted);font-size:15px}
+  .checks{display:grid;gap:8px}
+  .check{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+  .badge{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;margin-top:1px}
+  .badge.pass{background:var(--ok)} .badge.fail{background:var(--bad)}
+  .check-body b{font-size:15px;display:block}
+  .check-body span{font-size:13px;color:var(--muted)}
+  .cta-box{background:var(--ink);color:#fff;border-radius:14px;padding:26px;margin-top:26px;text-align:center}
+  .cta-box h3{font-size:20px;margin-bottom:8px}
+  .cta-box p{color:#c7cbd1;font-size:15px;margin-bottom:18px}
+  .lead-form{display:grid;gap:10px;max-width:420px;margin:0 auto;text-align:left}
+  .lead-form input{padding:13px 15px;font-size:15px;border:none;border-radius:9px}
+  .lead-form .btn{width:100%}
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:30px 0}
+  .tier{border:1px solid var(--line);border-radius:14px;padding:24px}
+  .tier.feature{border:2px solid var(--red)}
+  .tier .price{font-size:30px;font-weight:700;margin:8px 0}
+  .tier ul{list-style:none;font-size:14px;color:var(--muted);margin-top:12px}
+  .tier li{padding:5px 0 5px 22px;position:relative}
+  .tier li:before{content:"✓";color:var(--ok);position:absolute;left:0;font-weight:700}
+  .pill{display:inline-block;background:rgba(200,16,46,.1);color:var(--red);font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:8px}
+  section.block{padding:30px 0;border-top:1px solid var(--line)}
+  section.block h2{font-size:26px;letter-spacing:-.01em;margin-bottom:8px}
+  section.block .lede{color:var(--muted);font-size:16px;margin-bottom:18px}
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:13px}
+  .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-3px;margin-right:8px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(max-width:560px){.hero h1{font-size:30px}}
+
+  /* Logo bar */
+  .logo-bar{padding:20px 0 28px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .logo-bar-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:18px}
+  .logo-row{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap}
+  .logo-row svg{height:28px;width:auto;opacity:.55;transition:opacity .2s ease;fill:var(--ink)}
+  .logo-row svg:hover{opacity:.85}
+  .logo-row .logo-text{font-weight:700;font-size:18px;letter-spacing:-.02em;color:var(--ink);opacity:.55;transition:opacity .2s}
+  .logo-row .logo-text:hover{opacity:.85}
+  @media(max-width:560px){.logo-row{gap:24px}.logo-row svg{height:22px}.logo-row .logo-text{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a class="brand" href="/">
+        <span class="dot"></span>
+        <div>LiveWire Intelligence Solutions
+          <small>AI &amp; search readiness</small>
+        </div>
+      </a>
+      <nav>
+        <a href="/">Free audit</a>
+        <a href="/schema">Schema generator</a>
+        <a href="/contact">Get a quote</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -173,99 +264,9 @@
     }
   ]
 }
-
 </script>
- *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
-  header{border-bottom:1px solid var(--line);padding:18px 0}
-  .header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
-  .dot{width:12px;height:12px;background:var(--red);border-radius:50%;box-shadow:0 0 0 4px rgba(200,16,46,.15)}
-  .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-  nav{display:flex;gap:20px}
-  nav a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500}
-  nav a:hover{color:var(--red)}
-  @media(max-width:560px){nav{gap:14px}nav a{font-size:13px}}
-  .hero{padding:54px 0 30px;text-align:center}
-  .hero h1{font-size:38px;line-height:1.15;letter-spacing:-.02em;max-width:720px;margin:0 auto 16px}
-  .hero h1 span{color:var(--red)}
-  .hero p{font-size:18px;color:var(--muted);max-width:600px;margin:0 auto}
-  .tool{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:28px;margin:32px 0}
-  .audit-row{display:flex;gap:10px;flex-wrap:wrap}
-  .audit-row input{flex:1;min-width:220px;padding:15px 16px;font-size:16px;border:1px solid var(--line);border-radius:10px;background:#fff}
-  .audit-row input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.12)}
-  .btn{background:var(--red);color:#fff;border:none;padding:15px 26px;font-size:16px;font-weight:600;border-radius:10px;cursor:pointer;white-space:nowrap}
-  .btn:hover{background:#a60d26}
-  .btn:disabled{opacity:.6;cursor:not-allowed}
-  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
-  .btn.ghost:hover{background:var(--soft)}
-  .hint{font-size:13px;color:var(--muted);margin-top:12px;text-align:center}
-  .hidden{display:none}
-  .score-head{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}
-  .gauge{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;flex-shrink:0}
-  .gauge b{font-size:34px;line-height:1}
-  .gauge small{font-size:11px;text-transform:uppercase;letter-spacing:.05em;opacity:.8}
-  .score-summary h2{font-size:22px;margin-bottom:6px}
-  .score-summary p{color:var(--muted);font-size:15px}
-  .checks{display:grid;gap:8px}
-  .check{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px}
-  .badge{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;margin-top:1px}
-  .badge.pass{background:var(--ok)} .badge.fail{background:var(--bad)}
-  .check-body b{font-size:15px;display:block}
-  .check-body span{font-size:13px;color:var(--muted)}
-  .cta-box{background:var(--ink);color:#fff;border-radius:14px;padding:26px;margin-top:26px;text-align:center}
-  .cta-box h3{font-size:20px;margin-bottom:8px}
-  .cta-box p{color:#c7cbd1;font-size:15px;margin-bottom:18px}
-  .lead-form{display:grid;gap:10px;max-width:420px;margin:0 auto;text-align:left}
-  .lead-form input{padding:13px 15px;font-size:15px;border:none;border-radius:9px}
-  .lead-form .btn{width:100%}
-  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:30px 0}
-  .tier{border:1px solid var(--line);border-radius:14px;padding:24px}
-  .tier.feature{border:2px solid var(--red)}
-  .tier .price{font-size:30px;font-weight:700;margin:8px 0}
-  .tier ul{list-style:none;font-size:14px;color:var(--muted);margin-top:12px}
-  .tier li{padding:5px 0 5px 22px;position:relative}
-  .tier li:before{content:"✓";color:var(--ok);position:absolute;left:0;font-weight:700}
-  .pill{display:inline-block;background:rgba(200,16,46,.1);color:var(--red);font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:8px}
-  section.block{padding:30px 0;border-top:1px solid var(--line)}
-  section.block h2{font-size:26px;letter-spacing:-.01em;margin-bottom:8px}
-  section.block .lede{color:var(--muted);font-size:16px;margin-bottom:18px}
-  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:13px}
-  .spinner{display:inline-block;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-3px;margin-right:8px}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @media(max-width:560px){.hero h1{font-size:30px}}
 
-  /* Logo bar */
-  .logo-bar{padding:20px 0 28px;text-align:center;border-bottom:1px solid var(--line);margin-bottom:8px}
-  .logo-bar-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:18px}
-  .logo-row{display:flex;justify-content:center;align-items:center;gap:36px;flex-wrap:wrap}
-  .logo-row svg{height:28px;width:auto;opacity:.55;transition:opacity .2s ease;fill:var(--ink)}
-  .logo-row svg:hover{opacity:.85}
-  .logo-row .logo-text{font-weight:700;font-size:18px;letter-spacing:-.02em;color:var(--ink);opacity:.55;transition:opacity .2s}
-  .logo-row .logo-text:hover{opacity:.85}
-  @media(max-width:560px){.logo-row{gap:24px}.logo-row svg{height:22px}.logo-row .logo-text{font-size:15px}}
-</style>
-</head>
-<body>
 
-<header>
-  <div class="wrap">
-    <div class="header-inner">
-      <a class="brand" href="/">
-        <span class="dot"></span>
-        <div>LiveWire Intelligence Solutions
-          <small>AI &amp; search readiness</small>
-        </div>
-      </a>
-      <nav>
-        <a href="/">Free audit</a>
-        <a href="/schema">Schema generator</a>
-        <a href="/contact">Get a quote</a>
-      </nav>
-    </div>
-  </div>
-</header>
 
 <div class="wrap">
   <div class="hero">
