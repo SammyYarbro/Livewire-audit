@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Free Schema Markup Generator | LiveWire Intelligence Solutions</title>
 <meta name="description" content="Generate JSON-LD structured data markup for your business in 60 seconds. Free tool by LiveWire Intelligence Solutions — Billings, MT." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="alternate icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <style>
   :root{
     --red:#c8102e;--ink:#15171a;--muted:#5b616b;--line:#e6e7ea;
@@ -543,8 +546,8 @@ function submitUpsell(){
   const name = document.getElementById('u-name').value.trim();
   const email = document.getElementById('u-email').value.trim();
   if(!name||!email||!email.includes('@')){ alert('Please enter your name and a valid email.'); return; }
-  // Replace mzdqwjyg with your Formspree ID (same one as audit page)
-  fetch('https://formspree.io/f/mzdqwjyg',{
+  // Replace YOUR_FORM_ID with your Formspree ID (same one as audit page)
+  fetch('https://formspree.io/f/YOUR_FORM_ID',{
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify({
       name, email,
